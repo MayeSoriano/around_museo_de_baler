@@ -1,0 +1,94 @@
+
+# FVM Version Cache
+.fvm/
+
+# Flutter/Dart specific files
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+*.dart.js
+*.dart.js.map
+*.info.json
+*.js
+*.js.map
+*.log
+*.html
+*.css
+*.apk
+*.ipa
+.dsyms/
+.flutter-plugins
+.flutter-plugins-dependencies
+.generated/
+.macos/
+android/app/debug.keystore
+
+# iOS specific files
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/engine/
+ios/Flutter/flutter_export_environment.sh
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/build/
+ios/.symlinks/
+ios/Flutter/Generated.xcconfig
+ios/Podfile.lock
+ios/Runner/GeneratedPluginRegistrant.*
+
+# Android specific files
+android/.gradle/
+android/app/*.iml
+android/local.properties
+android/.idea/
+android/app/build/
+android/app/debug.keystore
+
+# IntelliJ related files
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/libraries
+.idea/modules.xml
+.idea/codeStyles/
+.idea/runConfigurations/
+
+# VSCode related files
+.vscode/
+*.code-workspace
+
+# Generated files
+**/*.class
+**/*.log
+**/*.pyc
+**/*.pyo
+*.cache
+*.lock
+*.tmp
+
+# Firebase
+ios/firebase_app_id_file.json
+android/google-services.json
+
+# Temporary and system files
+*.swp
+*.lock
+*.DS_Store
+*.atom/
+*.sublime-workspace
+*.sublime-project
+*.log
+
+# Exceptions for useful files
+!pubspec.yaml
+!pubspec.lock

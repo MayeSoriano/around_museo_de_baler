@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "845473424065",
+    "project_id": "around-museo-de-baler-bfb54",
+    "storage_bucket": "around-museo-de-baler-bfb54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845473424065:android:edd44cb947ee1251086a40",
+        "android_client_info": {
+          "package_name": "com.clsu.bsit.around_museo_de_baler_mobile_app_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845473424065-gd2hqtsgiugrjecq9lpghsbufaj75b1j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.clsu.bsit.around_museo_de_baler_mobile_app_mobile_app",
+            "certificate_hash": "ed49d334d8d27b147f727e501cd2c16798efa0d0"
+          }
+        },
+        {
+          "client_id": "845473424065-lm0o1r7e6c7jmqgm8nuu4lk6vfjfosh7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZTGvg-Lif1JlUcgSW2xzh2yaTs3-cjkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845473424065-lm0o1r7e6c7jmqgm8nuu4lk6vfjfosh7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "845473424065-83c9v7g0la6sqcpn609au108464ebjsh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aroundMuseoDeBaler"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845473424065:android:8cf161e14c255740086a40",
+        "android_client_info": {
+          "package_name": "com.example.around_museo_de_baler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845473424065-hu2lrkp8quhiud8k0mvpds4eqjacq6a7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.around_museo_de_baler",
+            "certificate_hash": "ed49d334d8d27b147f727e501cd2c16798efa0d0"
+          }
+        },
+        {
+          "client_id": "845473424065-lm0o1r7e6c7jmqgm8nuu4lk6vfjfosh7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZTGvg-Lif1JlUcgSW2xzh2yaTs3-cjkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845473424065-lm0o1r7e6c7jmqgm8nuu4lk6vfjfosh7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "845473424065-83c9v7g0la6sqcpn609au108464ebjsh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aroundMuseoDeBaler"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,6 @@
+framework module flutter_embed_unity_2022_3_ios {
+  umbrella header "flutter_embed_unity_2022_3_ios-umbrella.h"
+
+  export *
+  module * { export * }
+}
