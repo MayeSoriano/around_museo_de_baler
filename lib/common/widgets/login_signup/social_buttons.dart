@@ -18,7 +18,7 @@ class SocialButtons extends StatelessWidget {
       width: double.infinity,
       child: OutlinedButton(
         onPressed: () async {
-          controller.googleSignIn();
+          await controller.googleSignIn();
         },
         child: const Row(
           mainAxisAlignment: MainAxisAlignment.center,

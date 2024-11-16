@@ -220,7 +220,9 @@ class AuthenticationRepository extends GetxService {
         'email',
         'https://www.googleapis.com/auth/userinfo.profile'
       ]);
+
       final GoogleSignInAccount? userAccount = await signin.signIn();
+
       // Check if the user canceled the sign-in
       if (userAccount == null) {
         return null; // User canceled the sign-in
@@ -256,7 +258,6 @@ class AuthenticationRepository extends GetxService {
 
       return userCredential;
     } on FirebaseAuthException catch (e) {
-      // print(e);
       throw MAppFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
       throw MAppFirebaseException(e.code).message;

@@ -29,8 +29,8 @@ class MapController {
   Set<Marker> markers = {};
   MarkerId? selectedMarkerId;
 
-  LatLng initialLocation = LatLng(15.759018066772345, 121.56654938336024);
-  static LatLng? selectedLocation = null;
+  LatLng initialLocation = const LatLng(15.759018066772345, 121.56654938336024);
+  static LatLng? selectedLocation;
 
   // Load the map style based on the theme
   Future<void> loadMapStyle(bool isDarkMode) async {

@@ -1,4 +1,3 @@
-import 'package:around_museo_de_baler_mobile_app/common/widgets/locations/favorites/location_favorites_icon_button_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:around_museo_de_baler_mobile_app/common/widgets/images/rounded_image.dart';
@@ -38,9 +37,7 @@ class LocationCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(MAppSizes.imageRadius),
           color: dark ? MAppColors.darkerGrey : MAppColors.white,
           border: Border.all(
-            color: dark
-                ? Colors.transparent
-                : MAppColors.grey.withOpacity(0.4),
+            color: dark ? Colors.transparent : MAppColors.grey.withOpacity(0.4),
           ),
         ),
         child: Column(
@@ -54,43 +51,42 @@ class LocationCard extends StatelessWidget {
                   // Conditionally display image or default image with shimmer effect
                   location.thumbnail.isNotEmpty
                       ? RoundedImage(
-                    height: height,
-                    width: width,
-                    isNetworkImage: true,
-                    imageUrl: location.thumbnail,
-                    applyImageRadius: true,
-                    noBottomRadius: true,
-                    fit: BoxFit.cover,
-                  )
+                          height: height,
+                          width: width,
+                          isNetworkImage: true,
+                          imageUrl: location.thumbnail,
+                          applyImageRadius: true,
+                          noBottomRadius: true,
+                          fit: BoxFit.cover,
+                        )
                       : Stack(
-                    children: [
-                      // Default image
-                      Image.asset(
-                        MAppImages.defaultLocationImage,
-                        width: width,
-                        height: height,
-                        fit: BoxFit.cover,
-                      ),
-                      // Shimmer effect
-                      ShimmerEffect(
-                        width: width,
-                        height: height,
-                      ),
-                    ],
-                  ),
+                          children: [
+                            // Default image
+                            Image.asset(
+                              MAppImages.defaultLocationImage,
+                              width: width,
+                              height: height,
+                              fit: BoxFit.cover,
+                            ),
+                            // Shimmer effect
+                            ShimmerEffect(
+                              width: width,
+                              height: height,
+                            ),
+                          ],
+                        ),
 
                   Visibility(
                     visible: location.operatingHours!.isNotEmpty &&
                         !location.isOpen &&
-                        !location.operatingHours!
-                            .containsKey('Status'),
+                        !location.operatingHours!.containsKey('Status'),
                     child: CloseTag(
                       opensAt: 'Opens at ${location.openTimes}',
                     ),
                   ),
 
                   LocationFavoriteIconButton(
-                      location: location,
+                    location: location,
                   ),
                 ],
               ),

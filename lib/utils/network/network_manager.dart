@@ -17,8 +17,10 @@ class NetworkManager extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _connectivitySubscription = _connectivity.onConnectivityChanged.listen((results) {
-      _updateConnectionStatus(results.isEmpty ? ConnectivityResult.none : results.first);
+    _connectivitySubscription =
+        _connectivity.onConnectivityChanged.listen((results) {
+      _updateConnectionStatus(
+          results.isEmpty ? ConnectivityResult.none : results.first);
     });
   }
 
@@ -34,7 +36,7 @@ class NetworkManager extends GetxController {
   Future<bool> isConnected() async {
     try {
       final result = await _connectivity.checkConnectivity();
-      if (result == ConnectivityResult.none) {
+      if (result.contains(ConnectivityResult.none)) {
         return false;
       } else {
         return true;

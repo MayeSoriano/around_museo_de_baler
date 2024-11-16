@@ -27,7 +27,7 @@ class _MapScreenState extends State<MapScreen> {
   final locationInfoController = LocationController.instance;
 
   MapType _currentMapType = MapType.normal;
-  LatLng? _currentPosition;
+  LatLng? currentPosition;
   Set<Marker> _markers = {};
 
   Map<PolylineId, Polyline> polylines = {};
@@ -43,7 +43,7 @@ class _MapScreenState extends State<MapScreen> {
   final TextEditingController _searchController = TextEditingController();
   List<LocationModel> _foundLocations = [];
   bool _isSearching = false;
-  String _searchQuery = '';
+  String searchQuery = '';
 
   @override
   void initState() {
@@ -94,7 +94,7 @@ class _MapScreenState extends State<MapScreen> {
       if (_isMounted) {
         // Update the current position
         setState(() {
-          _currentPosition = newPosition;
+          currentPosition = newPosition;
         });
         // Only move the camera if following user location is enabled and user isn't interacting
         if (_isFollowingUserLocation && !_isUserInteracting) {
@@ -116,7 +116,7 @@ class _MapScreenState extends State<MapScreen> {
 
   void _runFilter(String enteredKeyword) {
     setState(() {
-      _searchQuery = enteredKeyword; // Update the search query
+      searchQuery = enteredKeyword; // Update the search query
       _isSearching = enteredKeyword
           .isNotEmpty; // Set _isSearching based on input // Update the search query
     });

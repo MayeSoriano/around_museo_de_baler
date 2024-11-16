@@ -19,16 +19,23 @@ class AppRoutes {
     GetPage(name: MAppRoutes.home, page: () => const HomeScreen()),
     //GetPage(name: MAppRoutes.discover, page: () => const DiscoverScreen()),
     //GetPage(name: MAppRoutes.favorites, page: () => const FavoriteScreen()),
-    GetPage(name: MAppRoutes.map, page: () => MapScreen()),
+    GetPage(name: MAppRoutes.map, page: () => const MapScreen()),
     GetPage(name: MAppRoutes.search, page: () => const SearchScreen()),
     GetPage(name: MAppRoutes.profile, page: () => const ProfileScreen()),
     GetPage(name: MAppRoutes.settings, page: () => const SettingsScreen()),
     GetPage(name: MAppRoutes.onBoarding, page: () => const OnBoardingScreen()),
     GetPage(name: MAppRoutes.signUp, page: () => const SignupScreen()),
-    GetPage(name: MAppRoutes.verifyEmail, page: () => const VerifyEmailScreen()),
+    GetPage(
+        name: MAppRoutes.verifyEmail, page: () => const VerifyEmailScreen()),
     GetPage(name: MAppRoutes.login, page: () => const LoginScreen()),
-    GetPage(name: MAppRoutes.forgotPassword, page: () => const ForgotPasswordScreen()),
-    GetPage(name: MAppRoutes.qrCodeScanner, page: () => const QRCodeScannerScreen()),
-    GetPage(name: MAppRoutes.arContentCamera, page: () => ArContentCameraScreen()),
+    GetPage(
+        name: MAppRoutes.forgotPassword,
+        page: () => const ForgotPasswordScreen()),
+    GetPage(
+        name: MAppRoutes.qrCodeScanner,
+        page: () => const QRCodeScannerScreen()),
+    GetPage(
+        name: MAppRoutes.arContentCamera,
+        page: () => const ArContentCameraScreen()),
   ];
 }

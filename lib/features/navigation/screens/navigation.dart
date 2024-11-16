@@ -2,18 +2,15 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:custom_info_window/custom_info_window.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
-import 'package:lottie/lottie.dart' as lot;
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../common/widgets/loaders/shimmer_effect.dart';
 import '../../../utils/constants/api_constants.dart';
 import '../../../utils/constants/colors.dart';
-import '../../../utils/constants/image_strings.dart';
 import '../../../utils/device/device_utility.dart';
 import '../../../utils/helpers/helper_functions.dart';
 import '../controllers/map_controller.dart';
@@ -23,10 +20,10 @@ class NavigationScreen extends StatefulWidget {
   final String locationName;
 
   const NavigationScreen({
-    Key? key,
+    super.key,
     required this.destination,
     required this.locationName,
-  }) : super(key: key);
+  });
 
   @override
   State<NavigationScreen> createState() => _NavigationScreenState();
@@ -50,8 +47,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
   String? _duration;
   LatLng? _currentPosition;
 
-  StreamSubscription<Position>? _positionStreamSubscription;
-  final bool _navigationStarted = false;
+  StreamSubscription<Position>? positionStreamSubscription;
+  final bool navigationStarted = false;
 
   @override
   void initState() {

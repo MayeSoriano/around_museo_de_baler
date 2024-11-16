@@ -39,25 +39,27 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
       backgroundColor: dark ? MAppColors.dark : MAppColors.light,
       appBar: AppBar(
         backgroundColor: dark ? MAppColors.dark : MAppColors.light,
-        iconTheme: IconThemeData(color: dark ? MAppColors.white : MAppColors.black),
+        iconTheme:
+            IconThemeData(color: dark ? MAppColors.white : MAppColors.black),
         actions: [
           // Flash Toggle Button
           Obx(() => IconButton(
-            icon: Icon(
-              controller.isFlashOn.value ? Icons.flash_on : Icons.flash_off,
-              color: controller.isFrontCamera.value
-                  ? Colors.grey // Gray out when the front camera is active
-                  : controller.isFlashOn.value
-                  ? (dark ? Colors.yellow : Colors.yellow.shade800)
-                  : (dark ? MAppColors.white : MAppColors.black),
-            ),
-            onPressed: controller.isFrontCamera.value
-                ? null // Disable the button if the front camera is active
-                : () => controller.toggleFlash(cameraController),
-          )),
+                icon: Icon(
+                  controller.isFlashOn.value ? Icons.flash_on : Icons.flash_off,
+                  color: controller.isFrontCamera.value
+                      ? Colors.grey // Gray out when the front camera is active
+                      : controller.isFlashOn.value
+                          ? (dark ? Colors.yellow : Colors.yellow.shade800)
+                          : (dark ? MAppColors.white : MAppColors.black),
+                ),
+                onPressed: controller.isFrontCamera.value
+                    ? null // Disable the button if the front camera is active
+                    : () => controller.toggleFlash(cameraController),
+              )),
           // Camera Switch Button
           IconButton(
-            icon: Icon(Icons.cameraswitch, color: dark ? MAppColors.white : MAppColors.black),
+            icon: Icon(Icons.cameraswitch,
+                color: dark ? MAppColors.white : MAppColors.black),
             onPressed: () => controller.switchCamera(cameraController),
           ),
         ],
@@ -104,11 +106,13 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
                       // Ensure scanning happens only if scan is not completed yet
                       if (!controller.scanCompleted.value) {
                         if (barcodeCapture.barcodes.isNotEmpty) {
-                          final String scannedCode = barcodeCapture.barcodes.first.rawValue ?? '';
+                          final String scannedCode =
+                              barcodeCapture.barcodes.first.rawValue ?? '';
 
                           // Check the scanned code
                           if (scannedCode.isNotEmpty) {
-                            controller.checkQRCode(scannedCode);  // Call the QR code check function
+                            controller.checkQRCode(
+                                scannedCode); // Call the QR code check function
                           }
                         }
                       }

@@ -21,7 +21,7 @@ class ArContentCameraScreen extends StatefulWidget {
 
 class _ArContentCameraScreenState extends State<ArContentCameraScreen> {
   final controller = Get.put(QRCodeController());
-  bool? _isUnityArSupportedOnDevice;
+  bool? isUnityArSupportedOnDevice;
   bool _isLoading = true;
   bool _displayInstructions = true;
   String arMainStatusMessage = "Loading AR content...";
@@ -75,23 +75,29 @@ class _ArContentCameraScreenState extends State<ArContentCameraScreen> {
     });
   }
 
-  void _onNextPage() {
-    if (_currentPageIndex < _instructionPages.length - 1) {
-      _pageController.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeIn,
-      );
-    }
-  }
+  // void _onNextPage() {
+  //   if (_currentPageIndex < _instructionPages.length - 1) {
+  //     _pageController.nextPage(
+  //       duration: const Duration(milliseconds: 300),
+  //       curve: Curves.easeIn,
+  //     );
+  //   }
+  // }
 
-  void _onPreviousPage() {
-    if (_currentPageIndex > 0) {
-      _pageController.previousPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeIn,
-      );
-    }
-  }
+  // void _onPreviousPage() {
+  //   if (_currentPageIndex > 0) {
+  //     _pageController.previousPage(
+  //       duration: const Duration(milliseconds: 300),
+  //       curve: Curves.easeIn,
+  //     );
+  //   }
+  // }
+
+  // // Method to handle navigation if AR is not supported
+  // void _handleNotSupported(BuildContext context) {
+  //   if (!mounted) return;
+  //   Navigator.pop(context);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -125,12 +131,12 @@ class _ArContentCameraScreenState extends State<ArContentCameraScreen> {
                     onMessageFromUnity: (String data) {
                       if (data == "ar:true") {
                         setState(() {
-                          _isUnityArSupportedOnDevice = true;
+                          isUnityArSupportedOnDevice = true;
                           _isLoading = false;
                         });
                       } else if (data == "ar:false") {
                         setState(() {
-                          _isUnityArSupportedOnDevice = false;
+                          isUnityArSupportedOnDevice = false;
                           _isLoading = false;
                           Navigator.pop(context);
                         });
@@ -359,11 +365,5 @@ class _ArContentCameraScreenState extends State<ArContentCameraScreen> {
         ),
       ),
     );
-  }
-
-  // Method to handle navigation if AR is not supported
-  void _handleNotSupported(BuildContext context) {
-    if (!mounted) return;
-    Navigator.pop(context);
   }
 }

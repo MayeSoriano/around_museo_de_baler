@@ -1,14 +1,11 @@
 import 'package:around_museo_de_baler_mobile_app/common/widgets/appbar/appbar.dart';
-import 'package:around_museo_de_baler_mobile_app/features/personalization/controllers/update_gender_controller.dart';
+import 'package:around_museo_de_baler_mobile_app/features/personalization/controllers/update_birthyear_controller.dart';
 import 'package:around_museo_de_baler_mobile_app/utils/constants/sizes.dart';
+import 'package:around_museo_de_baler_mobile_app/utils/constants/text_strings.dart';
+import 'package:around_museo_de_baler_mobile_app/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
-import '../../../../utils/constants/text_strings.dart';
-import '../../../../utils/helpers/helper_functions.dart';
-import '../../../../utils/validators/validation.dart';
-import '../../controllers/update_birthyear_controller.dart';
 
 class ChangeBirthYear extends StatelessWidget {
   const ChangeBirthYear({super.key});
@@ -16,7 +13,7 @@ class ChangeBirthYear extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(UpdateBirthYearController());
-    final dark = MAppHelperFunctions.isDarkMode(context);
+    // final dark = MAppHelperFunctions.isDarkMode(context);
 
     return Scaffold(
       appBar: MAppBar(
@@ -43,7 +40,8 @@ class ChangeBirthYear extends StatelessWidget {
                 children: [
                   TextFormField(
                     controller: controller.birthYear,
-                    validator: (value) => MAppValidator.validateBirthYear(value),
+                    validator: (value) =>
+                        MAppValidator.validateBirthYear(value),
                     keyboardType: TextInputType.number,
                     expands: false,
                     decoration: const InputDecoration(

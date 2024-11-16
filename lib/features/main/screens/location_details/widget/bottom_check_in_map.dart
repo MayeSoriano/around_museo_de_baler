@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:around_museo_de_baler_mobile_app/features/navigation/controllers/map_controller.dart';
-import 'package:custom_info_window/custom_info_window.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -13,7 +10,7 @@ import '../../../../../utils/helpers/helper_functions.dart';
 import '../../../models/location_model.dart';
 
 class BottomCheckInMap extends StatelessWidget {
-  BottomCheckInMap({
+  const BottomCheckInMap({
     super.key,
     required this.location,
   });
@@ -22,8 +19,8 @@ class BottomCheckInMap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final customInfoWindowController = CustomInfoWindowController();
-    final mapController = Get.put(MapController(customInfoWindowController));
+    // final customInfoWindowController = CustomInfoWindowController();
+    // final mapController = Get.put(MapController(customInfoWindowController));
     final navController = NavigationController.instance;
     final dark = MAppHelperFunctions.isDarkMode(context);
 

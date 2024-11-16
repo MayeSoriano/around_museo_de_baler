@@ -12,11 +12,11 @@ class LocationFavoriteIconButton2 extends StatelessWidget {
   final double width, height;
 
   LocationFavoriteIconButton2({
-    Key? key,
+    super.key,
     required this.location,
     this.width = 40,
     this.height = 40,
-  }) : super(key: key);
+  });
 
   final LocationController locationController = Get.find<LocationController>();
 
