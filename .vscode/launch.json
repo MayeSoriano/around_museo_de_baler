@@ -7,6 +7,7 @@
         {
             "name": "around_museo_de_baler_mobile_app",
             "request": "launch",
+            "flutterMode": "debug",
             "type": "dart"
         },
         {
