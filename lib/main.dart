@@ -10,35 +10,36 @@ import '../data/repositories/authentication/authentication_repository.dart';
 import '../firebase_options.dart';
 
 /// ---------- Entry Point of Flutter App ----------
+
 Future<void> main() async {
-  // Widget Binding
-  final WidgetsBinding widgetsBinding =
-      WidgetsFlutterBinding.ensureInitialized();
+  try {
+    // Widget Binding
+    final WidgetsBinding widgetsBinding =
+        WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Local Storage
-  // await GetStorage.init();
+    // Await Native Splash
+    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // Await Native Splash
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
-  // Initialize Firebase
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-      .then((FirebaseApp app) {
-    // Initialize App Check
-    FirebaseAppCheck.instance.activate(
-      androidProvider:
-          AndroidProvider.debug, // Use 'playIntegrity' for production
-      appleProvider:
-          AppleProvider.appAttestWithDeviceCheckFallback, // App Attest for iOS
+    // Initialize Firebase
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
     );
 
-    // Put Authentication Repository in GetX dependency injection
-    Get.put(AuthenticationRepository());
-  });
+    // Initialize App Check
+    await FirebaseAppCheck.instance.activate(
+      androidProvider: AndroidProvider.debug,
+      appleProvider: AppleProvider.appAttestWithDeviceCheckFallback,
+    );
 
-  // Portrait Orientation
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
+    // Initialize Authentication Repository
+    Get.put(AuthenticationRepository());
+
+    // Portrait Orientation
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
     runApp(const App());
-  });
+  } catch (e) {
+    print('Initialization Error: $e');
+    // Handle initialization errors appropriately
+  }
 }

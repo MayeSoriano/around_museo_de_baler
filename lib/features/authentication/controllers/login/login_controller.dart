@@ -100,43 +100,48 @@ class LoginController extends GetxController {
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        // Remove Loader
+        FullScreenLoader.stopLoading();
+        MAppLoaders.errorSnackBar(
+          title: 'No Internet',
+          message: 'Please check your internet connection.',
+        );
+        return;
+      }
+
+      // Google Authentication - Only call once
+      final userCredential = await auth.signInWithGoogle();
+
+      // Check if sign-in was cancelled
+      if (userCredential == null) {
         FullScreenLoader.stopLoading();
         return;
       }
 
-      // Google Authentication
-      final userCredential = await auth.signInWithGoogle();
-
       // Check if the Google account email is registered
-      final email = userCredential?.user!.email;
+      final email = userCredential.user?.email;
       final isEmailRegistered = await auth.isRegisteredEmail(email);
 
       if (isEmailRegistered) {
-        // Email is registered, proceed with login
-        await auth.signInWithGoogle();
-
+        // Remove Loader
+        FullScreenLoader.stopLoading();
+        // Redirect
+        auth.screenRedirect();
+      } else {
         // Remove Loader
         FullScreenLoader.stopLoading();
 
-        // Redirect
-        AuthenticationRepository.instance.screenRedirect();
-      } else {
-        await AuthenticationRepository.instance
-            .deleteUser(userCredential?.user?.uid);
-
-        // Email is not registered, show an error
-        FullScreenLoader.stopLoading();
+        // Delete the user only after showing the error
         MAppLoaders.errorSnackBar(
           title: 'Unregistered Email',
           message:
               'This Google account is not registered. Please sign up first.',
         );
+
+        // Now delete the user
+        await auth.deleteUser(userCredential.user?.uid);
       }
     } catch (e) {
-      // Remove Loader
       FullScreenLoader.stopLoading();
-
       MAppLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }

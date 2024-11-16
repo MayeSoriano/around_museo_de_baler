@@ -1,6 +1,12 @@
 import 'package:around_museo_de_baler_mobile_app/data/repositories/user/user_repository.dart';
 import 'package:around_museo_de_baler_mobile_app/features/authentication/screens/login/login.dart';
+import 'package:around_museo_de_baler_mobile_app/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:around_museo_de_baler_mobile_app/features/authentication/screens/signup/verify_email.dart';
+import 'package:around_museo_de_baler_mobile_app/navigation_menu.dart';
+import 'package:around_museo_de_baler_mobile_app/utils/exceptions/firebase_auth_exceptions.dart';
+import 'package:around_museo_de_baler_mobile_app/utils/exceptions/firebase_exceptions.dart';
+import 'package:around_museo_de_baler_mobile_app/utils/exceptions/format_exceptions.dart';
+import 'package:around_museo_de_baler_mobile_app/utils/exceptions/platform_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -10,17 +16,14 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../../features/authentication/screens/onboarding/onboarding.dart';
-import '../../../navigation_menu.dart';
-import '../../../utils/exceptions/firebase_auth_exceptions.dart';
-import '../../../utils/exceptions/firebase_exceptions.dart';
-import '../../../utils/exceptions/format_exceptions.dart';
-import '../../../utils/exceptions/platform_exceptions.dart';
-
 /// Repository class for authentication operations
 class AuthenticationRepository extends GetxService {
-  static AuthenticationRepository get instance =>
+  static AuthenticationRepository get instance {
+    if (!Get.isRegistered<AuthenticationRepository>()) {
       Get.put(AuthenticationRepository());
+    }
+    return Get.find<AuthenticationRepository>();
+  }
 
   /// Variables
   final deviceStorage = GetStorage();
